@@ -5,6 +5,7 @@ import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
 import fileUpload from "express-fileupload";
+import router from "./Routes/index.js";
 
 const server = express();
 const httpServer = http.createServer(server);
@@ -35,4 +36,4 @@ server.use(fileUpload({ useTempFiles: true }));
 
 server.use(router);
 
-export default { server, io, helmet };
+export { server, io, httpServer };
