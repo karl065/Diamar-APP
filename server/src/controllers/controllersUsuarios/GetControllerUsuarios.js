@@ -53,14 +53,12 @@ const getControllerUsuarios = async (
       { password: 0 }
     )
       .populate("reservas")
-      .populate("fichaGeneral");
-    // .populate("fichasMasajes");
+      .populate("fichaGeneral")
+      .populate("fichasMasajes")
+      .populate("fichasFaciales")
+      .populate("fichasCorporales")
+      .populate("notificaciones");
 
-    //.populate("fichasFaciales")
-    // .populate("fichasCorporales")
-    // .populate("notificaciones");
-
-    console.log(usuarios);
     return usuarios;
   } catch (error) {
     return error;
