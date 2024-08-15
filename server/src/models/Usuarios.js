@@ -10,7 +10,7 @@ const usuariosSchema = new mongoose.Schema({
   edad: Number,
   sexo: { type: String, enum: ["Masculino", "Femenino"] },
   foto: String,
-  consentimiento: String,
+  consentimiento: [String],
   rol: { type: String, enum: ["Administrador", "Cliente"] },
   habilitado: { type: Boolean, default: true, required: true },
   estado: { type: Boolean, default: false, required: true },

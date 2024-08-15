@@ -9,7 +9,6 @@ const autenticarUsuario = async(email, password) => {
             email:{$regex: new RegExp("^" + email + "$", "i")}
         })
 
-
         if (!usuario) {
             throw new Error('Email o contraseña incorrectos')
         }
@@ -23,7 +22,6 @@ const autenticarUsuario = async(email, password) => {
         if (!validarContraseña) {
       throw new Error('Email o Contraseña incorrectos');
     }
-
 
         const usuarioLogueado = await Usuarios.findByIdAndUpdate(usuario._id, {estado: true}, {new:true})
 
@@ -71,3 +69,4 @@ const autenticarUsuario = async(email, password) => {
     }
 }
 
+export default autenticarUsuario
