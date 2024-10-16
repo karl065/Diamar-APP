@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import { Home, Layout } from './Views/index.jsx';
+import { Home, Layout, Login, Usuarios } from './Views/index.jsx';
 
 const App = () => {
 	return (
@@ -8,6 +8,8 @@ const App = () => {
 			<Routes>
 				<Route path="/" element={<Layout />}>
 					<Route index element={<Home />} />
+					<Route path="/Login" element={<Login />} />
+					<Route path="/Admin/Usuarios" element={<Usuarios />} />
 				</Route>
 			</Routes>
 		</div>

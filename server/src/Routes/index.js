@@ -8,6 +8,7 @@ import fichaFaciales from './RoutesFichasFaciales/RoutesFichasFaciales.js';
 import fichaCorporal from './RoutesFichasCorporales/RoutesFichasCorporales.js';
 import notificaciones from './RoutesNotificaciones/RoutesNotificaciones.js';
 import mensajes from './RoutesEmail/RoutesEmail.js';
+import auth from './RoutesAuth/RoutesAuth.js';
 
 const router = Router();
 
@@ -20,5 +21,6 @@ router.use('/fichasFaciales', fichaFaciales);
 router.use('/fichasCorporales', fichaCorporal);
 router.use('/notificaciones', notificaciones);
 router.use('/mensajes', mensajes);
+router.use('/auth', auth);
 
 export default router;

@@ -7,7 +7,7 @@ const componentesSlices = createSlice({
 	},
 	reducers: {
 		setDarkMode: (state, action) => {
-			state.login = action.payload;
+			state.darkMode = action.payload;
 		},
 	},
 });

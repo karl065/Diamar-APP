@@ -1,14 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BsFillMoonStarsFill } from 'react-icons/bs';
 import { IoSunny } from 'react-icons/io5';
 import '../../App.css';
+import { darkMode } from '../../redux/Actions/ActionsComponentes/ActionsComponentes';
 
 const DarkMode = () => {
-	const [isDarkMode, setIsDarkMode] = useState(() => {
-		// Cargar la preferencia del usuario desde localStorage
-		const storedPreference = localStorage.getItem('dark-mode');
-		return storedPreference ? JSON.parse(storedPreference) : null; // null indica que se usará la preferencia del sistema
-	});
+	const dispatch = useDispatch();
+	const isDarkMode = useSelector((state) => state.componentes.darkMode);
 
 	// Detectar la preferencia del sistema si no hay preferencia manual
 	useEffect(() => {
@@ -17,9 +16,9 @@ const DarkMode = () => {
 			const prefersDarkScheme = window.matchMedia(
 				'(prefers-color-scheme: dark)'
 			).matches;
-			setIsDarkMode(prefersDarkScheme);
+			darkMode(prefersDarkScheme, dispatch);
 		}
-	}, [isDarkMode]);
+	}, [isDarkMode, dispatch]);
 
 	// Aplicar colores en el root según el modo
 	useEffect(() => {
@@ -31,14 +30,11 @@ const DarkMode = () => {
 			root.style.setProperty('--bg-color', '#f0f0f0'); // Color de fondo claro
 			root.style.setProperty('--text-color', '#000'); // Color de texto en modo claro
 		}
-
-		// Guardar la preferencia en localStorage
-		localStorage.setItem('dark-mode', JSON.stringify(isDarkMode));
 	}, [isDarkMode]);
 
 	// Manejar el clic en el botón para alternar entre modos
 	const handleToggleDarkMode = () => {
-		setIsDarkMode((prev) => !prev); // Cambia el estado
+		darkMode(!isDarkMode, dispatch); // Cambia el estado
 	};
 
 	return (

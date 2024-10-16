@@ -16,7 +16,7 @@ const usuariosSchema = new mongoose.Schema({
 	consentimiento: [String],
 	rol: {
 		type: String,
-		enum: ['Administrador', 'Cliente'],
+		enum: ['Administrador', 'Terapeuta', 'Cliente'],
 	},
 	habilitado: {
 		type: Boolean,
